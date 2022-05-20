@@ -1,0 +1,39 @@
+<%- include('adminheader'); -%>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="uploadstyle.css">
+        <title>ADD CATEGORY | RENT.IO</title>
+    </head>
+
+    <body>
+        <div class="add-form">
+            <h1>
+                Add a Category
+            </h1>
+            <form action="addcategory" method="POST" enctype="multipart/form-data">
+                <label for="cid" class="form-label">Category Id</label><input type="text" name="cid" id="cid"
+                    autocomplete="off" required />
+                <label for="cname">Category Name</label><input type="text" id="cname" name="cname" required />
+
+                <div>
+                    <label for="image">Category Image</label>
+                    <input type="file" name="image" class="choose" id="image" />
+                </div>
+
+                <div>
+                    <input type="submit" name="add" id="add" value="Add">
+                </div>
+
+
+            </form>
+        </div>
+    </body>
+
+    </html>
+
+    <%- include('footer'); -%>

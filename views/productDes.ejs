@@ -1,0 +1,155 @@
+<%- include('header2'); -%>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="productDes.css">
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <link rel="stylesheet" href="/resources/demos/style.css">
+    </head>
+
+    <body>
+        <% if(proDesc.length!=0){proDesc.forEach(function(data){ %>
+            <div class="container">
+                <div class="card">
+                    <div class="container-fliud">
+                        <div class="wrapper row">
+                            <div class="preview col-md-6">
+
+                                <div class="preview-pic tab-content">
+                                    <center>
+                                        <div class="tab-pane active" id="pic-1"><img src="<%=data.productImage%>" />
+                                    </center>
+                                </div>
+
+
+                            </div>
+                            <form action="/order" method="post">
+                                <div class="details col-md-6">
+                                    <h3 class="product-title">
+                                        <%=data.productName%>
+                                    </h3>
+                                    <!-- <div class="rating">
+                                       
+                                        <span class="review-no">41 reviews</span>
+                                    </div> -->
+                                    <h3 class="product-description">
+                                        <b>
+                                            <%=data.productDescription%>
+                                        </b>
+                                    </h3>
+                                    <h4 class="price">Day price: <span>
+                                            <%=data.dailyRate%>
+                                        </span> Week price: <span>
+                                            <%=data.weeklyRate%>
+                                        </span>Monthly price: <span>
+                                            <%=data.monthlyRate%>
+                                        </span></h4>
+                                    <h4 class="price"></h4>
+                                    <p id="s_amount"><b>Security Amount </b>:<%=data.dailyRate%>
+                                    </p>
+                                    <input type="hidden" name="pid" value=<%=data.productId%>>
+                                    <input type="hidden" name="rate" value=<%=data.dailyRate%>>
+
+
+                                    <!-- <h5 class="sizes">sizes:
+							<span class="size" data-toggle="tooltip" title="small">s</span>
+							<span class="size" data-toggle="tooltip" title="medium">m</span>
+							<span class="size" data-toggle="tooltip" title="large">l</span>
+							<span class="size" data-toggle="tooltip" title="xtra large">xl</span>
+						</h5>
+						<h5 class="colors">colors:
+							<span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
+							<span class="color green"></span>
+							<span class="color blue"></span>
+						</h5> -->
+
+                                    <!-- <button type="button" onclick="closeOnSelectDemo()">📅</button> -->
+                                    <!-- <label for="start">Start date:</label>
+
+                                        <input type="date" id="sdate" name="trip-start" value="2022-05-08"
+                                            min="2022-05-08" max="2022-12-31">
+
+                                        <label for="start">End date:</label> -->
+                                    <p>SDate: <input type="text" id="datepicker" name="datepicker" required></p>
+                                    <p>EDate: <input type="text" id="datepicker2" name="datepicker2" required></p>
+                                    <p>Confirm Dates <button id="alert">📅</button>
+                                        <br>
+                                        <!-- <br>
+                                <form onsubmit="return validate()"> -->
+                                    <div class="action">
+                                        <a href="/order"><button class="add-to-cart btn btn-default" type="submit"
+                                                onclick="myfunction()">Order Now</button>
+
+
+                                    </div>
+
+                                    <input type="hidden" name="hold" id="hold">
+                                    <br>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <% })}else{ }%>
+                    <script>
+
+                        $(function () {
+                            $("#datepicker").datepicker();
+                            $("#datepicker2").datepicker();
+
+
+
+                            //selecting the button and adding a click event
+                            $("#alert").click(function () {
+
+                                //alerting the value inside the textbox
+                                var date = $("#datepicker").datepicker("getDate");
+                                var edate = $("#datepicker2").datepicker("getDate");
+
+                                var no = Math.abs(edate - date);
+                                var holding = Math.ceil(no / (1000 * 60 * 60 * 24));
+                                if (holding == 0) {
+                                    alert('There should be atleast 1 day gap');
+                                }
+                                alert(holding);
+                                document.getElementById('hold').innerHTML = holding;
+                            });
+                        });
+
+                        function myfunction() {
+                            if ($("#datepicker").datepicker("getDate") == null) {
+                                alert("Can't be empty");
+                                //   window.location.href = "http://localhost:5001/home";
+                            }
+                            else if ($("#datepicke2r").datepicker("getDate") == null) {
+                                alert("Can't be empty");
+                            }
+
+                        }
+
+                        function validate() {
+                            if ($("#datepicker").datepicker("getDate") == null) {
+                                alert("Can't be empty");
+                                return false;
+                                //   window.location.href = "http://localhost:5001/home";
+                            }
+                            if ($("#datepicker2").datepicker("getDate") == null) {
+                                alert("Can't be empty");
+                                return false;
+                            }
+                            //   return false;
+                        }
+                    </script>
+
+
+    </body>
+
+    </html>
+    <%- include('footer'); -%>

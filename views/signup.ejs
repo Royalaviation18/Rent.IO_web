@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signup.css">
+    <title>RENT.IO | Sign Up</title>
+    <style>
+        label {
+            margin-bottom: 0.2rem;
+        }
+
+        /* added span */
+        span {
+            display: block;
+            margin-left: 20px;
+            color: red;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="left">
+            <img src="/signup.png" alt="">
+        </div>
+        <div class="signup-card">
+            <h1>Rent.IO</h1>
+            <h2>Sign Up.</h2>
+            <form action="/submit" method="POST" onsubmit="return validate()">
+                <label for="userName">Name</label>
+                <input type="text" name="name" id="name" oninput=" this.value = this.value.replace(/[0-9]/g,'')"
+                    required autocomplete="no">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required autocomplete="no"><span></span>
+                <label for="mobile">Mobile no.</label>
+                <input type="tel" name="mobile" id="mobile" oninput=" this.value = this.value.replace(/[a-z,A-Z]/g,'')"
+                    required autocomplete="no"><span></span>
+                <label for="aadhaar">Aadhaar Number</label>
+                <input type="text" name="aadhaar" id="aadhaar"
+                    oninput=" this.value = this.value.replace(/[a-z,A-Z]/g,'')" autocomplete="no" required>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required><span></span>
+                <input type="submit" value="Sign Up " id="submit" name="submit">
+            </form>
+            <a href="/login">Already a member? Sign In.</a>
+        </div>
+
+    </div>
+    <script>
+        var span = document.getElementsByTagName('span');
+        var phone = document.getElementById('mobile');
+        var phnumber = /[0-9]{10}/
+        var span = document.getElementsByTagName('span');
+        phone.oninput = function () {
+
+            if (!phnumber.test(phone.value)) {
+                span[1].innerText = "Invalid";
+                span[1].style.color = "red";
+            }
+            else {
+                span[1].innerText = "Valid";
+                span[1].style.color = "lime";
+            }
+
+        }
+        var password1 = document.getElementById('password')
+        var span = document.getElementsByTagName('span');
+        password1.oninput = function () {
+
+            if (password1.value.length <= 8) {
+                span[2].innerText = "Weak";
+                span[2].style.color = "red";
+            }
+            else if (password1.value.length >= 8 && password1.value.length <= 12) {
+                span[2].innerText = "Medium";
+                span[2].style.color = "lime";
+            }
+            else {
+                span[2].innerText = "Strong";
+                span[2].style.color = "darkgreen";
+            }
+
+        }
+
+        function signup() {
+
+            var psword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[~`!@#$%^_+={}|:"<>,.?])[A-Za-z\d@$!%*?&]{8,}$/
+            if (!psword.test(password1.value)) {
+                alert("Password Criteria not met")
+                alert("Please include atleast 1 Uppercase Char, 1 Lowercase Char, 1 Number, 1 Special Character and minimum length should be 8 characters.")
+                return
+            }
+            else {
+                console.log("Wrong");
+            }
+
+        }
+        function validate() {
+            if (!phnumber.test(phone.value)) {
+                span[1].innerText = "Invalid";
+                span[1].style.color = "red";
+                return false;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

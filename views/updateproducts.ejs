@@ -1,0 +1,45 @@
+<%- include('header2'); -%>
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="uploadstyle.css">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <% if(userdata.length!=0) { userdata.forEach(function(data) { %>
+            <div class="add-form">
+                <h1>
+                    Update Your Product
+                </h1>
+                <form action="updatepro" method="POST">
+                    <label for="name" class="form-label">Product Name</label><input type="text" name="pname" id="pname"
+                        autocomplete="off" value="<%=data.productName%>" required />
+                    <label for="pdesc">Product Description</label><input type="text" id="pdesc" name="pdesc" required
+                        value="<%=data.productDescription%>" />
+                    <label for="daily">Daily Rate</label><input type="text" name="daily" id="daily" autocomplete="off"
+                        value="<%=data.dailyRate%>" required />
+                    <label for="weekly">Weekly Rate</label><input type="text" id="weekly" name="weekly"
+                        value="<%=data.weeklyRate%>" required />
+                    <label for="monthly">Monthly Rate</label><input type="text" id="monthly" name="monthly"
+                        value="<%=data.monthlyRate%>" required />
+                    <input type="hidden" name="pid" id="pid" value=<%=data.productId%>>
+
+
+                    <div>
+                        <input type="submit" name="update" id="update"><a href="www.google.com"></a></button>
+                    </div>
+
+                </form>
+            </div>
+            <% })}else{ }%>
+    </body>
+
+    </html>
+
+    <%- include('footer'); -%>

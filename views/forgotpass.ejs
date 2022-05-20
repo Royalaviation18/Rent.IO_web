@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="forgotpass.css">
+    <title>Rent.IO | Reset Password</title>
+    <style>
+        .email-error,
+        .password-error {
+            margin-top: 0.5rem;
+        }
+
+        label {
+            margin-bottom: 0.2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <img src="/forgotPass.png" alt="forgot-password">
+        </div>
+        <div class="login-card">
+            <h1>Rent.IO</h1>
+            <h2>Reset Password.</h2>
+            <form action="forgot" method="post">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+                <div class="email-error"> </div>
+                <input type="submit" value="Reset" id="submit" name="submit">
+                <p><a href="/login">Already know your password?Login</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<%- include('header2'); -%>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User Profile</title>
+        <link rel="stylesheet" href="uploadstyle.css">
+    </head>
+
+    <body>
+        <% if(userdata.length!=0) { userdata.forEach(function(data) { %>
+            <div class="add-form">
+                <h1>
+                    Hello <%=data.userName%>
+                </h1>
+                <form action="update" method="POST">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" name="name" id="name" autocomplete="off" required value=<%=data.userName%> />
+                    <label for="email">Email</label><input type="email" id="email" name="email"
+                        value="<%=data.userEmail%>" />
+                    <label for="mobile">Mobile Number</label><input type="text" name="mobile" id="mobile"
+                        autocomplete="off" value="<%=data.userMobile%>" />
+                    <label for="aadhaar">Aadhaar Number</label><input type="text" id="aadhaar" name="aadhaar"
+                        value="<%=data.userDoc%>" />
+
+                    <!-- <label for="password">Password</label><input type="password" name="password" id="password" required
+                        value="<MD5(%=data.userPassword%)>"> -->
+
+
+                    <input type="hidden" name="usrid" id="usrid" value=<%=usrid%>>
+                    <div>
+                        <input type="submit" name="update" id="update"></button>
+                    </div>
+
+
+                </form>
+            </div>
+            <% })}else{ }%>
+    </body>
+
+
+    </html>
+
+    <%- include('footer'); -%>

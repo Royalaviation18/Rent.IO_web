@@ -1,0 +1,83 @@
+<%- include('adminheader'); -%>
+
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Products</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+
+      body {
+        margin: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+
+    <table style="width:100%">
+
+      <tr>
+
+        <th>Product Id</th>
+        <th>Product Name</th>
+        <th>Product Description</th>
+        <th>Daily Rate</th>
+        <th>Weekly Rate</th>
+        <th>Monthly Rate</th>
+        <th>User Id</th>
+        <th>Category Id</th>
+        <th>Product State</th>
+        <th>Action</th>
+
+      </tr>
+      <% if(userdata.length!=0) { userdata.forEach(function(data) { %>
+        <tr>
+
+          <td>
+            <%=data.productId%>
+          </td>
+          <td>
+            <%=data.productName%>
+          </td>
+          <td>
+            <%=data.productDescription%>
+          </td>
+          <td>
+            <%=data.dailyRate%>
+          </td>
+          <td>
+            <%=data.weeklyRate%>
+          </td>
+          <td>
+            <%=data.monthlyRate%>
+          </td>
+          <td>
+            <%=data.userId%>
+          </td>
+          <td>
+            <%=data.categoryId%>
+          </td>
+          <td>
+            <%=data.productState%>
+          </td>
+          <td><a href="/productdelete?p_id=<%=data.productId%>"><input type="submit" value="Delete" name="dbtn"
+                id="dbtn"></a></td>
+        </tr>
+        <% })}else{ }%>
+    </table>
+
+  </body>
+
+  </html>
+  <%- include('footer'); -%>

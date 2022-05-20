@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="uploadstyle.css">
+    <title>Upload a Product</title>
+</head>
+
+<body>
+    <%- include('header2'); -%>
+        <div class="add-form">
+            <h1>
+                Upload Your Product
+            </h1>
+            <form action="items" method="POST" enctype="multipart/form-data">
+                <label for="pname" class="form-label">Product Name</label>
+                <input type="text" name="pname" id="pname" autocomplete="off" required />
+                <label for="description" class="form-label">Product Description</label>
+                <textarea name="description" id="description" cols="30" rows="4" required></textarea>
+
+                <label for="dprice">Day Price</label>
+                <input type="text" name="dprice" id="dprice" autocomplete="off" required />
+                <label for="wprice">Week Price</label><input type="text" id="wprice" name="wprice" required />
+                <label for="mprice">Month Price</label><input type="text" id="mprice" name="mprice" required />
+                <div>
+
+                    <label for="category">Select Category</label>
+                    <select name="category" aria-label="Category" required>
+
+                        <option selected>Select Category</option>
+
+                        <% if(catdata.length!=0) { catdata.forEach(function(data) { %>
+                            <option value=<%=data.categoryId%>><%=data.categoryName%>
+                            </option>
+                            <% })}else{ }%>
+                                <!-- <option value="2">Bed</option>
+                        <option value="3">Table</option>
+                        <option value="4">Ac</option>
+                        <option value="5">Tv</option>
+                        <option value="6">Wardrobe</option>
+                        <option value="7">Chair</option> -->
+                    </select>
+
+                </div>
+
+                <div>
+                    <label for="image">Product Image</label>
+                    <input type="file" name="image" class="choose" id="image" />
+                </div>
+                <input type="hidden" name="usrid" id="usrid" value=<%=usrid%>>
+                <div>
+                    <input type="submit" name="submit" id="submit" value="Submit">
+                </div>
+
+
+            </form>
+        </div>
+        <script>
+            // function myFunction() {
+            //     var dp = document.getElementById("dprice").value;
+            //     // alert(dpp);
+            //     var wpp = dp * 7;
+            //     var mpp = dp * 30;
+            //     var wp = wpp - (wpp * 10 / 100);
+            //     var mp = mpp - (mpp * 15 / 100);
+            //     // alert(wp);
+            //     document.getElementById("wprice").value = wp;
+            //     document.getElementById("mprice").value = mp;
+            // }
+
+        </script>
+</body>
+<%- include('footer'); -%>
+
+</html>

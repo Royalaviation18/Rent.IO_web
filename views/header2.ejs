@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="headerstyle.css">
+  <link rel="stylesheet" href="all.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .dropbtn {
+      background-color: #04AA6D;
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="/home"><img class="logo" src="logo.png" alt="image"></a>
+    <nav>
+      <ul class="navlinks">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <!-- <li><a href="#">Delivery Agents</a></li> -->
+        <li><a href="https://www.freeprivacypolicy.com/live/adb8cf39-1a74-4f1c-a25a-7e47c0ff81dd">Privacy
+            Policy</a></li>
+        <div class="dropdown">
+          <li><a href="/myprofile">My Profile</a></li>
+
+          <div class="dropdown-content">
+            <a href="/myprofile">My Profile</a>
+            <a href="/myproducts">My Products</a>
+            <a href="/myorders">My Orders </a>
+          </div>
+        </div>
+
+        <a href="/upload"><button class="btn"><i class="fa fa-upload" aria-hidden="true"></i>
+            Upload</button></a>
+
+
+      </ul>
+
+    </nav>
+
+    <a class="cta" href="/logout"><button>Logout</button></a>
+
+  </header>
+</body>
+
+</html>

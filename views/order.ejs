@@ -1,0 +1,31 @@
+<%- include('header2'); -%>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Confirm Payment</title>
+    </head>
+
+    <body>
+        <center>
+            <img src=payment.png>
+            <form action="delivery" method="POST">
+                <p>Enter Transaction Id : <input type="text" name="tid" id="tid" required></p>
+                <br>
+                <input type="hidden" name="sdate" value=<%=sdate%>>
+                <input type="hidden" name="edate" value=<%=edate%>>
+                <input type="hidden" name="id" value=<%=id%>>
+                <input type="hidden" name="totalamt" value=<%=totalamt%>>
+                <input type="hidden" name="hold" value=<%=hold%>>
+                <input type="submit" value="submit" id="submit" name="submit">
+        </center>
+        </form>
+
+    </body>
+
+    </html>
+
+    <%- include('footer'); -%>
