@@ -44,10 +44,6 @@ var adminhome = require('./routes/adminhome');
 var productapp = require('./routes/productapp');
 var category = require('./routes/category');
 var addcat = require('./routes/addcat');
-<<<<<<< HEAD
-=======
-var adminorderdetails = require('./routes/adminorderdetails');
->>>>>>> 572b2e2 (Initial commit)
 const { pid } = require('process');
 
 
@@ -103,10 +99,6 @@ app.use(delivery);
 app.use(adminhome);
 app.use(category);
 app.use(addcat);
-<<<<<<< HEAD
-=======
-app.use(adminorderdetails);
->>>>>>> 572b2e2 (Initial commit)
 
 
 
@@ -157,7 +149,6 @@ const storages = multer.diskStorage({
 });
 const uploadds = multer({ storage: storages })
 
-<<<<<<< HEAD
 app.post('/addcategory' ,uploadds.single('image'),function(req,res,next){
   console.log('Add a category');
   var cid  = req.body.cid;
@@ -167,17 +158,6 @@ app.post('/addcategory' ,uploadds.single('image'),function(req,res,next){
   var sql = `Insert into category (categoryId,categoryName,categoryImage) values ("${cid}","${cname}","${photo}");`
   connection.query(sql,function(err,result){
     if(err) throw err;
-=======
-app.post('/addcategory', uploadds.single('image'), function (req, res, next) {
-  console.log('Add a category');
-  var cid = req.body.cid;
-  var cname = req.body.cname;
-  var photo = req.file.filename;
-
-  var sql = `Insert into category (categoryId,categoryName,categoryImage) values ("${cid}","${cname}","${photo}");`
-  connection.query(sql, function (err, result) {
-    if (err) throw err;
->>>>>>> 572b2e2 (Initial commit)
     console.log("yo");
     console.log("Category Added successfully")
     res.redirect('/adminhome');

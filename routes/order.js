@@ -2,35 +2,14 @@ const express = require('express');
 var router = express.Router();
 const mysql = require('mysql');
 var conn = require('../database.js');
-<<<<<<< HEAD
-=======
+
 const moment = require('moment'); // Add moment.js for date formatting
->>>>>>> 572b2e2 (Initial commit)
 
 const app = express();
 
 router.post('/order', function (req, res, next) {
-  var id = req.body.pid;
-<<<<<<< HEAD
-  var sdate = req.body.datepicker
-  var edate = req.body.datepicker2
-  var totalamt = req.body.rate
-  var holding = req.body.hold;
-  // var noh = rq.query.holding;
-  var sql = "Select * from product where productId =" + id;
-  conn.query(sql, function (err, data, fields) {
-    if (err) throw err;
-    res.render('order', { title: 'productlist', proDesc: data, id: id, sdate: sdate, edate: edate, totalamt: totalamt, hold: holding });
-  })
-})
 
-
-
-
-module.exports = router;
-=======
   var sdate = req.body.datepicker;  // Start date (MM/DD/YYYY format)
-  var edate = req.body.datepicker2; // End date (MM/DD/YYYY format)
   var totalamt = req.body.rate;
   var holding = req.body.hold;
 
@@ -57,5 +36,3 @@ module.exports = router;
 });
 
 module.exports = router;
-
->>>>>>> 572b2e2 (Initial commit)
