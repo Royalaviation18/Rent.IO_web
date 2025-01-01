@@ -1,0 +1,110 @@
+<%- include('adminheader'); -%>
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="myorders.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+
+    <body>
+        <div class="container mt-5">
+            <div class="d-flex justify-content-center row">
+                <div class="col-md-10">
+
+                    <div class="rounded">
+                        <div class="table-responsive table-borderless">
+                            <table class="table">
+
+                                <thead>
+                                    <tr>
+                                        <!-- <th class="text-center">
+                                <div class="toggle-btn">
+                                    <div class="inner-circle"></div>
+                                </div>
+                            </th> -->
+                                        <th>Order Id</th>
+                                        <th>Order Date</th>
+                                        <th>Product Id</th>
+                                        <th>Total Amount</th>
+                                        <th>Payment Id</th>
+                                        <th>User Id</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                    </tr>
+
+                                </thead>
+
+                                <% if(userdata.length!=0) { userdata.forEach(function(data) { %>
+
+                                    <tbody class="table-body">
+                                        <tr class="cell-1">
+                        </div>
+
+                        </td>
+
+                        <td>
+                            <%=data.orderDetailsId%>
+                        </td>
+                        <td>
+                            <%=data.orderDate%>
+                        </td>
+                        <td>
+                            <%=data.productId%>
+                        </td>
+                        <td>
+                            <%=data.totalAmount%>
+                        </td>
+                        <td><span class="badge badge-success">
+                                <%=data.paymentId%>
+                            </span>
+                        </td>
+                        <td>
+                            <%=data.userId%>
+                        </td>
+                        <!-- <td><span class="badge badge-success">
+                            <%=data.categoryId%>
+                        </span>
+                    </td> -->
+                        <!-- <td></i></td> -->
+                        <td>
+                            <%=data.startDate%>
+                        </td>
+                        <td>
+                            <%=data.endDate%>
+                        </td>
+
+                        </tr>
+                        <% })}else{ }%>
+                            </tbody>
+                            </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+
+                $('.toggle-btn').click(function () {
+                    $(this).toggleClass('active').siblings().removeClass('active');
+                });
+
+            });
+        </script>
+
+    </body>
+
+    </html>
+
+    <%- include('footer'); -%>

@@ -11,6 +11,7 @@
 
 <body>
     <%- include('header2'); -%>
+<<<<<<< HEAD
         <div class="add-form">
             <h1>
                 Upload Your Product
@@ -76,3 +77,65 @@
 <%- include('footer'); -%>
 
 </html>
+=======
+    <div class="add-form">
+        <h1>Upload Your Product</h1>
+        <form action="items" method="POST" enctype="multipart/form-data">
+            <label for="pname" class="form-label">Product Name</label>
+            <input type="text" name="pname" id="pname" autocomplete="off" aria-label="Product Name" required />
+
+            <label for="description" class="form-label">Product Description</label>
+            <textarea name="description" id="description" cols="30" rows="4" aria-label="Product Description" required></textarea>
+
+            <label for="dprice">Day Price</label>
+            <input type="text" name="dprice" id="dprice" autocomplete="off" aria-label="Day Price" required />
+
+            <label for="wprice">Week Price</label>
+            <input type="text" id="wprice" name="wprice" aria-label="Week Price" required />
+
+            <label for="mprice">Month Price</label>
+            <input type="text" id="mprice" name="mprice" aria-label="Month Price" required />
+
+            <div>
+                <label for="category">Select Category</label>
+                <select name="category" id="category" aria-label="Category" required>
+                    <option value="" disabled selected>Select Category</option>
+                    <% if (catdata.length != 0) { 
+                        catdata.forEach(function(data) { %>
+                            <option value="<%=data.categoryId%>"><%=data.categoryName%></option>
+                        <% }) 
+                    } %>
+                </select>
+            </div>
+
+            <div>
+                <label for="image">Product Image</label>
+                <input type="file" name="image" id="image" class="choose" accept="image/*" required />
+            </div>
+
+            <input type="hidden" name="usrid" id="usrid" value="<%=usrid%>">
+
+            <div>
+                <input type="submit" name="submit" id="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Automatic price calculation
+        document.getElementById("dprice").addEventListener("input", function () {
+            const dp = parseFloat(this.value);
+            if (isNaN(dp)) return;
+
+            const wp = dp * 7 * 0.9; // 10% discount for weekly price
+            const mp = dp * 30 * 0.85; // 15% discount for monthly price
+
+            document.getElementById("wprice").value = wp.toFixed(2);
+            document.getElementById("mprice").value = mp.toFixed(2);
+        });
+    </script>
+    <%- include('footer'); -%>
+</body>
+
+</html>
+>>>>>>> 572b2e2 (Initial commit)

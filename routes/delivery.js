@@ -20,10 +20,22 @@ router.post('/delivery', function (req, res, next) {
   // var hold = edate - sdate;
 
   var sql = `INSERT INTO orderdetails (userId,paymentId,productId,securityAmt,totalAmount,startDate,endDate) values ("${uid}","${tid}","${id}","${securityAmt}","${totalamt}","${sdate}","${edate}");`
+<<<<<<< HEAD
   conn.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Payment Added successfully")
     res.render('delivery');
+=======
+  var sql2 = `INSERT into payment (paymentID,paymentAmt,userId) values ("${tid}","${totalamt}","${uid}");`
+  conn.query(sql, function (err, result) {
+    if (err) throw err;
+    conn.query(sql2, function (err, result) {
+      if (err) throw err;
+      console.log("Payment Added successfully")
+      res.render('delivery');
+    })
+
+>>>>>>> 572b2e2 (Initial commit)
   })
 
 });

@@ -77,17 +77,29 @@
                                             min="2022-05-08" max="2022-12-31">
 
                                         <label for="start">End date:</label> -->
+<<<<<<< HEAD
                                     <p>SDate: <input type="text" id="datepicker" name="datepicker" required></p>
                                     <p>EDate: <input type="text" id="datepicker2" name="datepicker2" required></p>
                                     <p>Confirm Dates <button id="alert">📅</button>
+=======
+
+                                    <p>SDate: <input type="text" id="datepicker" name="datepicker" required></p>
+                                    <p>EDate: <input type="text" id="datepicker2" name="datepicker2" required></p>
+                                    <br>
+                                    <p><button id="alert">Confirm Dates📅</button>
+                                        <br>
+>>>>>>> 572b2e2 (Initial commit)
                                         <br>
                                         <!-- <br>
                                 <form onsubmit="return validate()"> -->
                                     <div class="action">
                                         <a href="/order"><button class="add-to-cart btn btn-default" type="submit"
                                                 onclick="myfunction()">Order Now</button>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 572b2e2 (Initial commit)
                                     </div>
 
                                     <input type="hidden" name="hold" id="hold">
@@ -117,9 +129,18 @@
                                 var holding = Math.ceil(no / (1000 * 60 * 60 * 24));
                                 if (holding == 0) {
                                     alert('There should be atleast 1 day gap');
+<<<<<<< HEAD
                                 }
                                 alert(holding);
                                 document.getElementById('hold').innerHTML = holding;
+=======
+                                    return false;
+                                }
+                                alert("The total no.of days : " + holding);
+
+                                document.getElementById('hold').innerHTML = holding;
+                                return false;
+>>>>>>> 572b2e2 (Initial commit)
                             });
                         });
 
