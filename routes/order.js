@@ -21,16 +21,16 @@ router.post('/order', function (req, res, next) {
 
   conn.query(sql, function (err, data, fields) {
     if (err) throw err;
-    
+
     // Render the 'order' page with the formatted dates
-    res.render('order', { 
-      title: 'productlist', 
-      proDesc: data, 
-      id: id, 
+    res.render('order', {
+      title: 'productlist',
+      proDesc: data,
+      id: id,
       sdate: formattedSDate,  // Pass the formatted start date
       edate: formattedEDate,  // Pass the formatted end date
-      totalamt: totalamt, 
-      hold: holding 
+      totalamt: totalamt,
+      hold: holding
     });
   });
 });
