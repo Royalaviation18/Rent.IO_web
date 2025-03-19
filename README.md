@@ -52,7 +52,7 @@
 
 | Color             | Hex                                                                |
 | ----------------- | ------------------------------------------------------------------ |
-| Theme Color | ![#1998f6](https://via.placeholder.com/10/1998f6?text=+) #1998f6 |
+| Theme Color | ![#1998f6](https://via.placeholder.com/10/1998f6?) #1998f6 |
 | Button Color | ![#273238](https://via.placeholder.com/10/273238?text=+) #273238 |
 | Description Color | ![#8c8d8f](https://via.placeholder.com/10/8c8d8f?text=+) ##8c8d8f |
 | Background Color | ![#ffffff](https://via.placeholder.com/10/ffffff?text=+) #ffffff |
